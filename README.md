@@ -1,54 +1,71 @@
 ## Template
 O objetivo deste template é facilitar o setup de um projeto:
-  - Nest.js
-  - Framework Serverless (AWS Lambda)
+  - [Nest](https://nestjs.com/)
+  - Framework [Serverless](https://www.serverless.com/) (AWS Lambda)
   - Prisma (ORM)
 
-[Nest](https://nestjs.com/)
-[Serverless](https://www.serverless.com/)
-
-## Installation
+## Instalação
 
 ```bash
-$ npm install
+# Instalar NodeJS
+[Node](https://nodejs.org/en/)
+
+# Instalar Yarn (Caso não esteja)
+npm install --global yarn
+
+# Instalar Serverless
+npm install -g serverless
+
+# Autenticar o Serverless com uma Conta AWS
+serverless config credentials --provider aws --key KEY_HASH --secret SECRET_HASH
+
+# Instalar Nest.JS
+npm i -g @nestjs/cli
+
+# Clonar Repositório
+$ git clone https://github.com/guilhermelange/Serverless-Nest-Template.git
+
+# Instalar Dependências do Projeto
+yarn
+
+# Criar um documento .env com a variável DATABASE_URL. Ex:
+DATABASE_URL="postgresql://user:password@host:5432/database?schema=public"
 ```
 
-## Running the app
+# Prisma (Migrations)
+```bash
+# Executar migration do Prisma conforme o arquivo /prisma/schema.prisma
+yarn prisma:dev
+```
+
+## Executar Nest Local
 
 ```bash
-# development
-$ npm run start
-
 # watch mode
-$ npm run start:dev
+$ yarn start:dev
 
-# production mode
-$ npm run start:prod
+# Produção
+$ yarn start:prod
 ```
 
-## Test
+## Nest Testes
 
 ```bash
-# unit tests
+# Testes Unitários
 $ npm run test
 
-# e2e tests
+# Testes e2e
 $ npm run test:e2e
 
-# test coverage
+# Teste de Cobertura
 $ npm run test:cov
 ```
 
-## Support
+## Executar Nest Serverless
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+# Teste Local (Offline)
+$ yarn sls:dev
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+# Deploy na AWS (Lambda)
+$ yarn sls:deploy
