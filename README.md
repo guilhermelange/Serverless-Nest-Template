@@ -1,8 +1,8 @@
-## Template
+# Template
 O objetivo deste template é facilitar o setup de um projeto:
   - [Nest](https://nestjs.com/)
   - Framework [Serverless](https://www.serverless.com/) (AWS Lambda)
-  - Prisma (ORM)
+  - [Prisma](https://www.prisma.io/) (ORM)
 
 ## Instalação
 
@@ -32,7 +32,7 @@ yarn
 DATABASE_URL="postgresql://user:password@host:5432/database?schema=public"
 ```
 
-# Prisma (Migrations)
+## Prisma (Migrations)
 ```bash
 # Executar migration do Prisma conforme o arquivo /prisma/schema.prisma
 yarn prisma:dev
